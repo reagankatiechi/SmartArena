@@ -64,7 +64,7 @@
       if(username && email && password){
         localStorage.setItem("quizUser", JSON.stringify({username, email, password}));
         alert("Registration successful! 🎉");
-        window.location.href = "index.html"; // redirect to quiz page
+        window.location.href = "register.html"; // redirect to quiz page
       } else {
         alert("Please fill in all fields.");
       }
@@ -72,3 +72,4 @@
   </script>
 </body>
 </html>
+
