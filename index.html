@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register - Quiz Game</title>
+  <title>SmartArena</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -49,30 +49,22 @@
 <body>
   <div class="register-box">
     <h2>Register</h2>
-    <input type="text" id="username" placeholder="Enter Username" required>
-    <input type="email" id="email" placeholder="Enter Email" required>
-    <input type="password" id="password" placeholder="Enter Password" required>
-    <a href="https://docs.google.com/spreadsheets/d/11g8QawLnYwfyyhoGIvGfQd5WEUIJzXQMTp9bz0Zhhnw/edit?usp=sharing" target="_blank">
-      <button onclick="registerUser()">Register</button>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeHr8sQPNdwtUtHv04ksMRn_JuAwaNLtAgvgVqSkUnS1daFow/formResponse" 
+          method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+
+      <input type="text" name="entry.890002803" placeholder="Enter Username" required>
+      <input type="email" name="entry.972079001" placeholder="Enter Email" required>
+      <input type="password" name="entry.950340024" placeholder="Enter Password" required>
+      <button type="submit">Register</button>
+    </form>
   </div>
 
-  <script>
-    function registerUser() {
-      const username = document.getElementById('username').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
+  <!-- Invisible iframe to stop Google redirect -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" 
+          onload="if(submitted){window.location='register.html';}"></iframe>
 
-      if(username && email && password){
-        localStorage.setItem("quizUser", JSON.stringify({username, email, password}));
-        alert("Registration successful! 🎉");
-        window.location.href = "register.html"; // redirect to quiz page
-      } else {
-        alert("Please fill in all fields.");
-      }
-    }
+  <script>
+    var submitted = false;
   </script>
 </body>
 </html>
-
-
-
